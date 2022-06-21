@@ -1,0 +1,25 @@
+.row-categories {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.card {
+  border-radius: 15px;
+  width: 23rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card img {
+  height: 10rem;
+}

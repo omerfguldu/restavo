@@ -1,0 +1,88 @@
+header {
+  background-image: linear-gradient(
+      rgba(34, 34, 34, 0.65),
+      rgba(34, 34, 34, 0.65)
+    ),
+    url("../../assets/bgimage.jpg");
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  max-width: 1903px;
+  background-size: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 150px;
+}
+
+.main-texts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main-text {
+  color: white;
+}
+
+.main-title {
+  color: white;
+  font-size: 5rem;
+  text-transform: lowercase;
+}
+
+.navbar {
+  width: 60%;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.navbar-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.nav-link {
+  color: white;
+}
+
+.navbar-links-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-link-item {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1.2rem;
+  display: block;
+  transition: all 0.1s ease;
+}
+
+.nav-link-item:hover {
+  transform: scale(1.05);
+}
+
+.main-search {
+  width: 400px;
+}
+
+.btn-success {
+  background-color: #ff922b;
+  border: none;
+  transition: all 0.2s ease-in;
+}
+
+.btn-success:hover {
+  background-color: #fd7e14;
+}
