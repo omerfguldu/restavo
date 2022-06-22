@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
 
 import { DininglistComponent } from './dining-list/dining-list.component';
+import { FilterbarComponent } from './filterbar/filterbar.component';
+import { MyreservationsComponent } from './myreservations/myreservations.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { DininglistComponent } from './dining-list/dining-list.component';
     NavbarComponent,
     FooterComponent,
     CategoriesComponent,
-    DininglistComponent
+    DininglistComponent,
+    FilterbarComponent,
+    MyreservationsComponent
     
         
   ],

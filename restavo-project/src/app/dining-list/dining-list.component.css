@@ -1,6 +1,9 @@
-.row {
+.masterdiv{
     width: 60%;
     margin: 0 auto;
+}
+.row {
+    margin-top: 25px;
   }
   
   .restaurant-link {
