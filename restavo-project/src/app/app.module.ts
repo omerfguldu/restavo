@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +15,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     CategoriesComponent,
     DiningOutComponent,
-    DashboardComponent
+    RestaurantListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

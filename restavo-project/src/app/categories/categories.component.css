@@ -1,7 +1,8 @@
 .row-categories {
-  width: 65%;
+  width: 60%;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card {
@@ -22,4 +23,28 @@
 
 .card img {
   height: 10rem;
+}
+
+.categories-link {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 933px) and (max-width: 1390px) {
+  .row-categories {
+    /* background-color: red; */
+    grid-template-columns: 1fr 1fr;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 933px) {
+  .row-categories {
+    /* background-color: red; */
+    grid-template-columns: 1fr;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
 }
