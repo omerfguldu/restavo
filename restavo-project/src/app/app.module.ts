@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DiningOutComponent } from './dining-out/dining-out.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+
+import { DininglistComponent } from './dining-list/dining-list.component';
+
 
 @NgModule({
   declarations: [
@@ -14,8 +16,9 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
     NavbarComponent,
     FooterComponent,
     CategoriesComponent,
-    DiningOutComponent,
-    RestaurantListComponent,
+    DininglistComponent
+    
+        
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

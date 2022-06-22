@@ -1,0 +1,10 @@
+.row {
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .restaurant-link {
+    text-decoration: none;
+    color: black;
+  }
+  

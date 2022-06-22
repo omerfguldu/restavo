@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-restaurant-list',
-  templateUrl: './restaurant-list.component.html',
-  styleUrls: ['./restaurant-list.component.css'],
+  selector: 'app-dining-list',
+  templateUrl: './dining-list.component.html',
+  styleUrls: ['./dining-list.component.css'],
 })
-export class RestaurantListComponent implements OnInit {
+export class DininglistComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
@@ -13,22 +13,22 @@ export class RestaurantListComponent implements OnInit {
   restaurantsList = [
     {
       imageSrc: '../../assets/restaurants.jpg',
-      name: 'Rest 1',
+      name: 'ceviz ağacı',
       description: 'This is Rest 1',
     },
     {
       imageSrc: '../../assets/clubs.jpg',
-      name: 'Rest 2',
+      name: 'sakız ağacı',
       description: 'This is Rest 2',
     },
     {
       imageSrc: '../../assets/breakfast.jpg',
-      name: 'Rest 3',
+      name: 'muz ağacı',
       description: 'This is Rest 3',
     },
     {
       imageSrc: '../../assets/restaurants.jpg',
-      name: 'Rest 4',
+      name: 'sucuk ağacı',
       description: 'This is Rest 4',
     },
   ];
