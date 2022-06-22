@@ -7,6 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
     CategoriesComponent,
     DiningOutComponent,
     RestaurantListComponent,
+    RestaurantDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
