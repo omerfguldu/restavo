@@ -10,6 +10,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { DininglistComponent } from './dining-list/dining-list.component';
 import { FilterbarComponent } from './filterbar/filterbar.component';
 import { MyreservationsComponent } from './myreservations/myreservations.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { MyreservationsComponent } from './myreservations/myreservations.compone
     
         
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

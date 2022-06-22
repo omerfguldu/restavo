@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable, observable } from 'rxjs';
 
 @Component({
   selector: 'app-dining-list',
@@ -6,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dining-list.component.css'],
 })
 export class DininglistComponent implements OnInit {
-  constructor() {}
+  private url = "http://172.16.88.73:8078/getRestaurants/1"
+  li:any;
+  lis=[];
+  constructor(private http : HttpClient) {
+    this.http.get(this.url).subscribe(Response => {
+ 
+      // If response comes hideloader() function is called
+      // to hide that loader
+     
+      console.log(Response)
+      this.li=Response;
+      this.lis=this.li.list;
+    })
+  }
+ 
 
   ngOnInit(): void {}
 
