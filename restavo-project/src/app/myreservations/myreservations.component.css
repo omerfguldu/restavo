@@ -1,0 +1,15 @@
+.divclass {
+  margin-left: 100px;
+  text-decoration: underline;
+  margin-bottom: 50px;
+}
+.container {
+  margin-top: 25px;
+  background-color: rgb(240, 230, 216);
+  height: 80px;
+  max-width: 85%;
+}
+.span {
+  float: right;
+  margin: 20px;
+}

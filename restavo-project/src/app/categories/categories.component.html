@@ -1,11 +1,15 @@
 <div class="row row-categories">
-  <div class="col-md-12 col-lg-4" *ngFor="let category of categoryList">
+  <div class="col-md-12 col-lg-4" *ngFor="let category of categories">
     <div class="card">
       <a class="categories-link" href="" routerLink="/restaurants">
-        <img src="{{ category.image_path }}" class="card-img-top" alt="..." />
+        <img
+          src="../../assets/restaurants.jpg"
+          class="card-img-top"
+          alt="..."
+        />
         <div class="card-body">
-          <h5 class="card-title">{{ category.category_name }}</h5>
-          <p class="card-text">{{ category.category_text }}</p>
+          <h5 class="card-title">{{ category.username }}</h5>
+          <p class="card-text">{{ category.name }}</p>
         </div>
       </a>
     </div>
