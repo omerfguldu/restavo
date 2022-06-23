@@ -10,6 +10,7 @@ import { RestaurantDetailsComponent } from './restaurant-details/restaurant-deta
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { MyreservationsComponent } from './myreservations/myreservations.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { MyreservationsComponent } from './myreservations/myreservations.compone
     LoginComponent,
     MyreservationsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

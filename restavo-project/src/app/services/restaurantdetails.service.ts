@@ -12,4 +12,6 @@ export class RestaurantdetailsService {
       `http://172.16.88.73:8078/restaurant/${this.restaurantId}`
     );
   }
+
+  addRezervasyon;
 }

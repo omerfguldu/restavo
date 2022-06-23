@@ -153,31 +153,54 @@
       </p>
     </div>
   </div>
-  <div class="modal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Yeni Rezervasyon Olustur</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+  <div
+    class="modal-background"
+    *ngIf="showModal"
+    (click)="showModal = false"
+  ></div>
+  <div class="modal-dialog modal-dialog-centered" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Rezervasyon Olustur</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="showModal = false"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- <form [formGroup]="addReservation" (ngSubmit)="onSubmit()"> -->
+        <label for="restName">Restoran Adi</label>
+        <input
+          type="text"
+          id="restName"
+          value="{{ restaurantDetails.name }}"
+          disabled
+        />
+        <label for="restDate">Tarih Seçiniz</label>
+        <input type="date" id="restDate" />
+        <label for="restHour">Saat Seçiniz</label>
+        <select name="" id="restHour">
+          <option value="10:00">10:00</option>
+        </select>
+        <label for="restPeople">Kişi Sayısı</label>
+        <select name="" id="restPeople">
+          <option value="1">1</option>
+        </select>
+        <!-- </form> -->
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="showModal = false"
+        >
+          Kapat
+        </button>
+        <button type="button" class="btn btn-primary">Oluştur</button>
       </div>
     </div>
   </div>
