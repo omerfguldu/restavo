@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CategoriesService {
   // url = 'http://172.16.88.73:8078/restaurant/3';
-  url = 'https://jsonplaceholder.typicode.com/users';
+  url = 'http://172.16.88.73:8078/getCategories';
   constructor(private http: HttpClient) {}
   getCategories() {
     return this.http.get(this.url);

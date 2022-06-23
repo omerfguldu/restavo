@@ -13,9 +13,9 @@
     <img src="../../assets/restaurants.jpg" />
   </div>
   <div class="resto-info">
-    <h2>Rest Name</h2>
+    <h2>{{ restaurantDetails.name }}</h2>
     <p>Steak, Burger</p>
-    <p>Besiktas Merkez, Istanbul</p>
+    <p>{{ restaurantDetails.address }}</p>
   </div>
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     <ul class="nav nav-tabs">
@@ -45,7 +45,11 @@
       </div>
       <p>Menu</p>
       <div class="menu-container">
-        <img src="../../assets/menu.jpg" alt="" class="img-thumbnail" />
+        <img
+          src=" {{ restaurantDetails.menuPicture }} "
+          alt=""
+          class="img-thumbnail"
+        />
       </div>
       <p>Mutfak Turu</p>
       <div class="type-container">
@@ -55,7 +59,7 @@
     </div>
     <p>Ortalama Tutar</p>
     <div class="average-price">
-      <p>15$ iki kisi icin</p>
+      <p>{{ restaurantDetails.averagePrice }}₺ iki kisi icin</p>
       <p>Nakit ve kredi karti kabul edilir.</p>
     </div>
     <p>Daha fazla bilgi</p>
@@ -137,7 +141,7 @@
     </div>
     <div class="address-container">
       <p class="about-title">Ara</p>
-      <p class="about-number">+908502547876</p>
+      <p class="about-number">{{ restaurantDetails.tel }}</p>
       <p class="about-title">Yol Tarifi</p>
       <img
         src="https://maps.zomato.com/php/staticmap?center=41.0436391235,29.0020920709&maptype=zomato&markers=41.0436391235,29.0020920709,pin_res32&sensor=false&scale=2&zoom=16&language=tr&size=240x150&size=400x240&size=650x250"
