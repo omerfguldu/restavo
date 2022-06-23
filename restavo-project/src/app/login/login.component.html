@@ -6,6 +6,7 @@
       id="exampleInputEmail1"
       aria-describedby="emailHelp"
       placeholder="Ad-Soyad"
+      required
     />
   </div>
   <div class="form-group">
@@ -15,6 +16,8 @@
       id="exampleInputPassword1"
       placeholder="Telefon"
       maxlength="12"
+      required
+      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
     />
   </div>
   <div class="form-group">
@@ -24,6 +27,7 @@
       id="exampleInputEmail1"
       aria-describedby="emailHelp"
       placeholder="Email"
+      required
     />
   </div>
   <div class="form-group">
@@ -32,8 +36,9 @@
       class="form-control"
       id="exampleInputPassword1"
       placeholder="Password"
+      required
     />
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" routerLink="/" >Submit</button>
 </form>
