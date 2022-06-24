@@ -8,9 +8,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
 import { MyreservationsComponent } from './myreservations/myreservations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CategoriesComponent,
     RestaurantListComponent,
     RestaurantDetailsComponent,
-    LoginComponent,
     MyreservationsComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

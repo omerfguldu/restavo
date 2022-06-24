@@ -1,15 +1,22 @@
-.divclass {
-  margin-left: 100px;
-  text-decoration: underline;
+.row {
+  width: 60%;
+  margin: 0 auto;
   margin-bottom: 50px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
 }
-.container {
-  margin-top: 25px;
-  background-color: rgb(240, 230, 216);
-  height: 80px;
-  max-width: 85%;
+.buttons {
+  /* background-color: red; */
+  display: inline-block;
 }
-.span {
-  float: right;
-  margin: 20px;
+
+table {
+  width: 90%;
+}
+
+.btn {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
 }

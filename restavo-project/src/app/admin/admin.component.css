@@ -1,6 +1,20 @@
 .row {
-  width: 60%;
+  max-width: 60%;
   margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.accordion {
+  margin-top: 20px;
+  max-width: 50%;
+}
+
+.accordion-collapse {
+  padding: 20px;
+}
+
+textarea {
+  resize: none;
 }
 
 .card {
@@ -43,7 +57,7 @@ h5 {
 
 .card-title .rating {
   text-align: right;
-  background-color: #37b24d;
+  background-color: green;
   padding: 3px 15px 3px 10px;
   color: white;
   border-radius: 10px;
@@ -60,26 +74,4 @@ h5 {
 .card-body p {
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
-}
-
-.filter-bar {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.filter-bar a {
-  border: 1px solid rgb(207, 207, 207);
-  text-decoration: none;
-  background-color: rgb(255, 255, 255);
-  color: rgb(156, 156, 156);
-  box-shadow: rgb(54 54 54 / 6%) 0px 1px 2px;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.filter-bar a:hover {
-  background-color: rgb(245, 245, 245);
 }

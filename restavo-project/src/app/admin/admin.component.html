@@ -1,0 +1,102 @@
+<div class="row">
+  <h3>Yeni Restoran Ekle</h3>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          Yeni Restoran Ekleme
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Restoran Adi</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputDesc" class="form-label"
+              >Restoran Aciklamasi</label
+            >
+            <textarea
+              type="text"
+              class="form-control mb-3"
+              id="exampleInputDesc"
+              rows="3"
+            ></textarea>
+            <label for="exampleInputAddress" class="form-label"
+              >Restoran Adresi</label
+            >
+            <textarea
+              type="text"
+              class="form-control mb-3"
+              id="exampleInputAddress"
+              rows="3"
+            ></textarea>
+            <label for="exampleInputTel" class="form-label"
+              >Restoran Telefon</label
+            >
+            <input
+              type="tel"
+              class="form-control"
+              id="exampleInputTel"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h3>Tüm Restoranlar</h3>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <!-- <div class="col" *ngFor="let restaurant of restaurantsList"> -->
+  <div class="col">
+    <div class="card h-100">
+      <a class="restaurant-link">
+        <!-- (click)="restaurantInfo(restaurant.id)" -->
+        <img
+          src="https://b.zmtcdn.com/data/pictures/3/5926083/f41c77d43da5c25c9fefc7aea0eccb8f_featured_v2.jpg?output-format=webp"
+          class="card-img-top"
+          alt=""
+        />
+        <div class="card-body">
+          <div class="card-body-left">
+            <h5>Restaurant 1</h5>
+            <p class="card-text">Restaurant 1 desc</p>
+            <p class="card-text">Restaurant 1 desc</p>
+          </div>
+          <div class="card-body-left">
+            <p class="card-title">
+              <span class="rating">5.0 <span class="star">*</span></span>
+            </p>
+            <p class="card-text">Restaurant 1 desc</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

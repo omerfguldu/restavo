@@ -8,14 +8,30 @@ import { GetrestaurantsService } from '../services/getrestaurants.service';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
-  categories: any;
+  categories = [
+    {
+      categoryId: 1,
+      name: 'dining',
+      description: 'dining restaurants',
+    },
+    {
+      categoryId: 2,
+      name: 'breakfast',
+      description: 'breakfast restaurants',
+    },
+    {
+      categoryId: 3,
+      name: 'club',
+      description: 'club restaurants',
+    },
+  ];
   constructor(
     private categoryData: CategoriesService,
     private restaurants: GetrestaurantsService
   ) {
-    categoryData.getCategories().subscribe((data) => {
-      this.categories = data;
-    });
+    // categoryData.getCategories().subscribe((data) => {
+    //   this.categories = data;
+    // });
   }
 
   ngOnInit(): void {}

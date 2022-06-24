@@ -14,7 +14,7 @@
   </div>
   <div class="resto-info">
     <h2>{{ restaurantDetails.name }}</h2>
-    <p>Steak, Burger</p>
+    <p>{{ restaurantDetails.description }}</p>
     <p>{{ restaurantDetails.address }}</p>
   </div>
   <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -171,25 +171,29 @@
         ></button>
       </div>
       <div class="modal-body">
-        <!-- <form [formGroup]="addReservation" (ngSubmit)="onSubmit()"> -->
-        <label for="restName">Restoran Adi</label>
-        <input
-          type="text"
-          id="restName"
-          value="{{ restaurantDetails.name }}"
-          disabled
-        />
-        <label for="restDate">Tarih Seçiniz</label>
-        <input type="date" id="restDate" />
-        <label for="restHour">Saat Seçiniz</label>
-        <select name="" id="restHour">
-          <option value="10:00">10:00</option>
-        </select>
-        <label for="restPeople">Kişi Sayısı</label>
-        <select name="" id="restPeople">
-          <option value="1">1</option>
-        </select>
-        <!-- </form> -->
+        <form
+          [formGroup]="addReservation"
+          (ngSubmit)="onSubmit()"
+          class="res-form"
+        >
+          <label for="restName">Restoran Adi</label>
+          <input
+            type="text"
+            id="restName"
+            value="{{ restaurantDetails.name }}"
+            formControlName="restName"
+          />
+          <label for="restDate">Tarih Seçiniz</label>
+          <input type="date" id="restDate" formControlName="restDate" />
+          <label for="restHour">Saat Seçiniz</label>
+          <select name="" id="restHour" formControlName="restHour">
+            <option value="10:00" selected>10:00</option>
+          </select>
+          <label for="restPeople">Kişi Sayısı</label>
+          <select name="" id="restPeople" formControlName="restPeople">
+            <option value="1" selected>1</option>
+          </select>
+        </form>
       </div>
       <div class="modal-footer">
         <button
