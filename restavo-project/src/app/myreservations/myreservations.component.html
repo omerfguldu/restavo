@@ -9,14 +9,16 @@
         <th scope="col">Restoran Adı</th>
         <th scope="col">Tarih</th>
         <th scope="col">Saat</th>
+        <th scope="col">Kişi Sayısı</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Restoran 1</td>
-        <td>24.06.2022</td>
-        <td>21:00</td>
+      <tr *ngFor="let reservation of reservations">
+        <th scope="row"></th>
+        <td>{{ reservation.restName }}</td>
+        <td>{{ reservation.reservationDate }}</td>
+        <td>{{ reservation.reservationTime }}</td>
+        <td>{{ reservation.personNum }}</td>
         <td>
           <button type="button" class="btn btn-warning">Güncelle</button>
           <button type="button" class="btn btn-danger">İptal Et</button>

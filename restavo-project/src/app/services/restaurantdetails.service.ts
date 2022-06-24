@@ -12,4 +12,8 @@ export class RestaurantdetailsService {
       `http://172.16.88.73:8078/restaurant/${this.restaurantId}`
     );
   }
+
+  postReservationData(body: any) {
+    return this.http.post('http://172.16.88.45:8080/orders/add', body);
+  }
 }

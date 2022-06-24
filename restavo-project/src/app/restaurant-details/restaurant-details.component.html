@@ -1,17 +1,36 @@
+<div class="modal-res" tabindex="-1" *ngIf="showAlert">
+  <div class="modal-dialog">
+    <div class="modal-content modal-content-res">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="showAlert = false"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>Rezervasyon başarıyla oluşturuldu.</p>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="column column-1">
-    <img src="../../assets/restaurants.jpg" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
   </div>
   <div class="column column-2">
-    <img src="../../assets/restaurants.jpg" />
-    <img src="../../assets/restaurants.jpg" />
-    <img src="../../assets/restaurants.jpg" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
   </div>
   <div class="column column-3">
-    <img src="../../assets/restaurants.jpg" />
-    <img src="../../assets/restaurants.jpg" />
-    <img src="../../assets/restaurants.jpg" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
+    <img src="{{ restaurantDetails.restaurantPicture }}" />
   </div>
+
   <div class="resto-info">
     <h2>{{ restaurantDetails.name }}</h2>
     <p>{{ restaurantDetails.description }}</p>
@@ -46,7 +65,7 @@
       <p>Menu</p>
       <div class="menu-container">
         <img
-          src=" {{ restaurantDetails.menuPicture }} "
+          [src]="getSantizeUrl(restaurantDetails.menuPicture)"
           alt=""
           class="img-thumbnail"
         />
@@ -171,29 +190,25 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form
-          [formGroup]="addReservation"
-          (ngSubmit)="onSubmit()"
-          class="res-form"
-        >
+        <div class="res-form">
           <label for="restName">Restoran Adi</label>
           <input
+            value="konoha"
             type="text"
             id="restName"
-            value="{{ restaurantDetails.name }}"
-            formControlName="restName"
+            [(ngModel)]="restaurantName"
           />
           <label for="restDate">Tarih Seçiniz</label>
-          <input type="date" id="restDate" formControlName="restDate" />
+          <input type="date" id="restDate" [(ngModel)]="reservationDate" />
           <label for="restHour">Saat Seçiniz</label>
-          <select name="" id="restHour" formControlName="restHour">
+          <select name="" id="restHour" [(ngModel)]="reservationHour">
             <option value="10:00" selected>10:00</option>
           </select>
           <label for="restPeople">Kişi Sayısı</label>
-          <select name="" id="restPeople" formControlName="restPeople">
+          <select name="" id="restPeople" [(ngModel)]="reservationPeople">
             <option value="1" selected>1</option>
           </select>
-        </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button
@@ -204,7 +219,9 @@
         >
           Kapat
         </button>
-        <button type="button" class="btn btn-primary">Oluştur</button>
+        <button type="button" (click)="onSubmit()" class="btn btn-primary">
+          Oluştur
+        </button>
       </div>
     </div>
   </div>
