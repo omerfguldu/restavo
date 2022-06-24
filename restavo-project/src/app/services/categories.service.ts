@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CategoriesService {
-  // url = 'http://172.16.88.74:8078/getCategories';
-  // constructor(private http: HttpClient) {}
-  // getCategories() {
-  //   return this.http.get(this.url);
-  // }
+  url = 'http://172.16.88.73:8078/getCategories';
+  constructor(private http: HttpClient) {}
+  getCategories() {
+    return this.http.get(this.url);
+  }
 }

@@ -6,9 +6,9 @@
   align-items: flex-end;
   gap: 20px;
 }
-.buttons {
+button {
   /* background-color: red; */
-  display: inline-block;
+  margin-right: 10px;
 }
 
 table {

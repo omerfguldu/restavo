@@ -13,78 +13,34 @@
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <!-- <div class="col" *ngFor="let restaurant of restaurantsList"> -->
-  <div class="col">
+  <div class="col" *ngFor="let restaurant of restaurantsList">
     <div class="card h-100">
-      <a class="restaurant-link" href="" routerLink="/details">
-        <!-- (click)="restaurantInfo(restaurant.id)" -->
+      <a
+        class="restaurant-link"
+        href=""
+        routerLink="/details"
+        (click)="restaurantInfo(restaurant.id)"
+      >
+        <!--  -->
         <img
-          src="https://b.zmtcdn.com/data/pictures/3/5926083/f41c77d43da5c25c9fefc7aea0eccb8f_featured_v2.jpg?output-format=webp"
+          src="{{ restaurant.restaurantPicture }}"
           class="card-img-top"
           alt=""
         />
         <div class="card-body">
           <div class="card-body-left">
-            <h5>Restaurant 1</h5>
-            <p class="card-text">Restaurant 1 desc</p>
-            <p class="card-text">Restaurant 1 desc</p>
+            <h5>{{ restaurant.name }}</h5>
+            <p class="card-text">{{ restaurant.description }}</p>
+            <p class="card-text">{{ restaurant.address }}</p>
           </div>
           <div class="card-body-left">
             <p class="card-title">
               <span class="rating">5.0 <span class="star">*</span></span>
             </p>
-            <p class="card-text">Restaurant 1 desc</p>
+            <p class="card-text">
+              {{ restaurant.averagePrice }}₺ iki kişi için
+            </p>
           </div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <a class="restaurant-link" href="" routerLink="/details">
-        <!-- (click)="restaurantInfo(restaurant.id)" -->
-        <img
-          src="https://b.zmtcdn.com/data/pictures/3/5926083/f41c77d43da5c25c9fefc7aea0eccb8f_featured_v2.jpg?output-format=webp"
-          class="card-img-top"
-          alt=""
-        />
-        <div class="card-body">
-          <h5 class="card-title">Restaurant 2</h5>
-          <p class="card-text">Restaurant 2 desc</p>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <a class="restaurant-link" href="" routerLink="/details">
-        <!-- (click)="restaurantInfo(restaurant.id)" -->
-        <img
-          src="https://b.zmtcdn.com/data/pictures/3/5926083/f41c77d43da5c25c9fefc7aea0eccb8f_featured_v2.jpg?output-format=webp"
-          class="card-img-top"
-          alt=""
-        />
-        <div class="card-body">
-          <h5 class="card-title">Restaurant 3</h5>
-          <p class="card-text">Restaurant 3 desc</p>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <a class="restaurant-link" href="" routerLink="/details">
-        <!-- (click)="restaurantInfo(restaurant.id)" -->
-        <img
-          src="https://b.zmtcdn.com/data/pictures/3/5926083/f41c77d43da5c25c9fefc7aea0eccb8f_featured_v2.jpg?output-format=webp"
-          class="card-img-top"
-          alt=""
-        />
-        <div class="card-body">
-          <h5 class="card-title">Restaurant 4</h5>
-          <p class="card-text">Restaurant 4 desc</p>
         </div>
       </a>
     </div>

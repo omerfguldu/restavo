@@ -1,13 +1,13 @@
 <div class="row row-categories">
   <div class="col-md-12 col-lg-4" *ngFor="let category of categories">
     <div class="card">
-      <a class="categories-link" href="" routerLink="/restaurants">
-        <!-- (click)="selectCategoryId(category.categoryId)" -->
-        <img
-          src="../../assets/restaurants.jpg"
-          class="card-img-top"
-          alt="..."
-        />
+      <a
+        class="categories-link"
+        href=""
+        routerLink="/restaurants"
+        (click)="selectCategoryId(category.categoryId)"
+      >
+        <img src="{{ category.picture }}" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ category.name }}</h5>
           <p class="card-text">{{ category.description }}</p>
