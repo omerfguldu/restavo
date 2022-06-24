@@ -75,3 +75,11 @@ h5 {
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
 }
+
+.restaurant-link img {
+  height: 225px;
+}
+
+.restaurant-link {
+  cursor: pointer;
+}

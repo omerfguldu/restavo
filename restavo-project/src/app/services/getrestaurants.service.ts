@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class GetrestaurantsService {
-  restId;
+  restId = 1;
 
   constructor(private http: HttpClient) {}
 
