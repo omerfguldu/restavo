@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetallrestService } from '../services/getallrest.service';
 import { GetrestaurantsService } from '../services/getrestaurants.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { GetrestaurantsService } from '../services/getrestaurants.service';
 })
 export class AdminComponent implements OnInit {
   restaurantsList: any;
-  constructor(private restaurantService: GetrestaurantsService) {
+  constructor(private restaurantService: GetallrestService) {
     restaurantService.getRestaurants().subscribe((data) => {
       this.restaurantsList = data;
     });
