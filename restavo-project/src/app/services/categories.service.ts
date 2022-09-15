@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class CategoriesService {
   // url = 'http://172.16.88.73:8078/getCategories';
   // constructor(private http: HttpClient) {}
+  url = `https://63233633362b0d4e7ddee232.mockapi.io/categories`;
+  constructor(private http: HttpClient) {}
   categories = [
     {
       categoryId: 1,
@@ -28,6 +31,7 @@ export class CategoriesService {
     },
   ];
   getCategories() {
-    return this.categories;
+    // return this.categories;
+    return this.http.get(this.url);
   }
 }

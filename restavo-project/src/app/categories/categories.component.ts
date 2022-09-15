@@ -13,10 +13,10 @@ export class CategoriesComponent implements OnInit {
     private categoryData: CategoriesService,
     private restaurants: GetrestaurantsService
   ) {
-    // categoryData.getCategories().subscribe((data) => {
-    //   this.categories = data;
-    // });
-    this.categories = this.categoryData.getCategories();
+    categoryData.getCategories().subscribe((data) => {
+      this.categories = data;
+    });
+    // this.categories = this.categoryData.getCategories();
   }
 
   ngOnInit(): void {}
