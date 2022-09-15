@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { GetrestaurantsService } from '../services/getrestaurants.service';
 import { RestaurantdetailsService } from '../services/restaurantdetails.service';
 
 @Component({
@@ -20,12 +21,14 @@ export class RestaurantDetailsComponent implements OnInit {
   constructor(
     private restDetail: RestaurantdetailsService,
     private formBuilder: FormBuilder,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private restaurantDetail: RestaurantdetailsService
   ) {
-    restDetail.getRestaurantDetails().subscribe((data) => {
-      // console.warn(data);
-      this.restaurantDetails = data;
-    });
+    // restDetail.getRestaurantDetails().subscribe((data) => {
+    //   // console.warn(data);
+    //   this.restaurantDetails = data;
+    // });
+    this.restaurantDetails = this.restaurantDetail.getRestaurantDetails()[0];
   }
   public getSantizeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
@@ -51,7 +54,7 @@ export class RestaurantDetailsComponent implements OnInit {
       reservationTime: this.reservationHour,
       personNum: this.reservationPeople,
     };
-    this.restDetail.postReservationData(body).subscribe((data) => {});
+    // this.restDetail.postReservationData(body).subscribe((data) => {});
     this.showModal = false;
     this.showAlert = true;
   }

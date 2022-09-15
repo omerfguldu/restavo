@@ -13,11 +13,12 @@ export class RestaurantListComponent implements OnInit {
     private restaurants: GetrestaurantsService,
     private restDetail: RestaurantdetailsService
   ) {
-    restaurants.getRestaurants().subscribe((data) => {
-      console.warn(data);
-      this.restaurantsList = data;
-      console.log(this.restaurantsList[0]);
-    });
+    // restaurants.getRestaurants().subscribe((data) => {
+    //   console.warn(data);
+    //   this.restaurantsList = data;
+    //   console.log(this.restaurantsList[0]);
+    // });
+    this.restaurantsList = restaurants.getRestaurants();
   }
 
   ngOnInit(): void {}
