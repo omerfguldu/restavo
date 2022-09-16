@@ -12,6 +12,14 @@
       <div class="navbar-links-container">
         <ul class="navbar-links-list">
           <li>
+            <a
+              class="nav-link-item"
+              *ngIf="userType === 'admin'"
+              routerLink="/admin"
+              >Admin Panel</a
+            >
+          </li>
+          <li>
             <a class="nav-link-item" *ngIf="resText" routerLink="/reservations"
               >Rezervasyonlarım</a
             >
@@ -61,8 +69,22 @@
     </div>
     <div class="modal-body">
       <form class="res-form">
-        <input type="text" placeholder="Kullanıcı Adı" required value="user" />
-        <input type="password" placeholder="Şifre" required value="user" />
+        <input
+          type="text"
+          placeholder="Kullanıcı Adı"
+          required
+          [ngModel]="username"
+          (ngModelChange)="onUsernameChange($event)"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <input
+          type="password"
+          placeholder="Şifre"
+          required
+          [ngModel]="password"
+          (ngModelChange)="onPasswordChange($event)"
+          [ngModelOptions]="{ standalone: true }"
+        />
         <button
           type="submit"
           (click)="login()"
