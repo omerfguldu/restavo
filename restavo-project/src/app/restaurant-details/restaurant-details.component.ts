@@ -1,8 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { GetrestaurantsService } from '../services/getrestaurants.service';
-import { RestaurantdetailsService } from '../services/restaurantdetails.service';
+import { RestaurantsService } from '../services/restaurants.service';
 
 @Component({
   selector: 'app-restaurant-details',
@@ -10,7 +9,6 @@ import { RestaurantdetailsService } from '../services/restaurantdetails.service'
   styleUrls: ['./restaurant-details.component.css'],
 })
 export class RestaurantDetailsComponent implements OnInit {
-  // @Output() reservationData = new EventEmitter();
   addReservation: FormGroup;
   restaurantDetails: any;
   restaurantName: any;
@@ -19,31 +17,23 @@ export class RestaurantDetailsComponent implements OnInit {
   reservationPeople: any;
 
   constructor(
-    private restDetail: RestaurantdetailsService,
     private formBuilder: FormBuilder,
     private sanitizer: DomSanitizer,
-    private restaurantDetail: RestaurantdetailsService
+    private restaurants: RestaurantsService
   ) {
-    // restDetail.getRestaurantDetails().subscribe((data) => {
-    //   // console.warn(data);
-    //   this.restaurantDetails = data;
-    // });
-    this.restaurantDetails = this.restaurantDetail.getRestaurantDetails()[0];
+    restaurants.getRestaurants().subscribe((data) => {
+      this.restaurantDetails = data;
+      this.restaurantDetails = this.restaurantDetails.filter((restaurant) => {
+        return restaurant.id === this.restaurants.restaurantId;
+      });
+      this.restaurantDetails = this.restaurantDetails[0];
+    });
   }
   public getSantizeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
-  ngOnInit(): void {
-    // this.addReservation = this.formBuilder.group({
-    //   restName: this.formBuilder.control('', Validators.required),
-    //   restDate: this.formBuilder.control('', Validators.required),
-    //   restHour: this.formBuilder.control('', Validators.required),
-    //   restPeople: this.formBuilder.control('', Validators.required),
-    // });
-    // //if()
-    // this.addReservation.get('restName');
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     // this.reservationData.emit(this.addReservation.value);

@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoriesService {
-  // url = 'http://172.16.88.73:8078/getCategories';
-  // constructor(private http: HttpClient) {}
-  url = `https://63233633362b0d4e7ddee232.mockapi.io/categories`;
+export class RestaurantsService {
+  url = `https://63233633362b0d4e7ddee232.mockapi.io/restaurants`;
   constructor(private http: HttpClient) {}
-  getCategories() {
+
+  categoryId;
+  restaurantId;
+
+  getRestaurants() {
     return this.http.get(this.url);
   }
 }

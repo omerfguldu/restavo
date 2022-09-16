@@ -22,11 +22,7 @@
         (click)="restaurantInfo(restaurant.id)"
       >
         <!--  -->
-        <img
-          src="{{ restaurant.restaurantPicture }}"
-          class="card-img-top"
-          alt=""
-        />
+        <img src="{{ restaurant.picture }}" class="card-img-top" alt="" />
         <div class="card-body">
           <div class="card-body-left">
             <h5>{{ restaurant.name }}</h5>
@@ -35,7 +31,9 @@
           </div>
           <div class="card-body-left">
             <p class="card-title">
-              <span class="rating">{{ restaurant.rate }} <span class="star">*</span></span>
+              <span class="rating"
+                >{{ restaurant.rate }} <span class="star">*</span></span
+              >
             </p>
             <p class="card-text">
               {{ restaurant.averagePrice }}₺ iki kişi için

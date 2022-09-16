@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../services/categories.service';
-import { GetrestaurantsService } from '../services/getrestaurants.service';
+import { RestaurantsService } from '../services/restaurants.service';
 
 @Component({
   selector: 'app-categories',
@@ -11,17 +11,16 @@ export class CategoriesComponent implements OnInit {
   categories: any;
   constructor(
     private categoryData: CategoriesService,
-    private restaurants: GetrestaurantsService
+    private restaurants: RestaurantsService
   ) {
     categoryData.getCategories().subscribe((data) => {
       this.categories = data;
     });
-    // this.categories = this.categoryData.getCategories();
   }
 
   ngOnInit(): void {}
 
   selectCategoryId(categoryId) {
-    this.restaurants.restId = categoryId;
+    this.restaurants.categoryId = categoryId;
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetallrestService } from '../services/getallrest.service';
-import { GetrestaurantsService } from '../services/getrestaurants.service';
+import { RestaurantsService } from '../services/restaurants.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,8 +8,8 @@ import { GetrestaurantsService } from '../services/getrestaurants.service';
 })
 export class AdminComponent implements OnInit {
   restaurantsList: any;
-  constructor(private restaurantService: GetallrestService) {
-    restaurantService.getRestaurants().subscribe((data) => {
+  constructor(private restaurantService: RestaurantsService) {
+    this.restaurantService.getRestaurants().subscribe((data) => {
       this.restaurantsList = data;
     });
   }
