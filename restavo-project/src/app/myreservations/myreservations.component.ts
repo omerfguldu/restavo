@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetreservationsService } from '../services/getreservations.service';
+import { ReservationsService } from '../services/reservations.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-myreservations',
@@ -7,10 +8,16 @@ import { GetreservationsService } from '../services/getreservations.service';
   styleUrls: ['./myreservations.component.css'],
 })
 export class MyreservationsComponent implements OnInit {
-  reservations: any;
-  constructor(private reservationService: GetreservationsService) {
-    reservationService.getReservations().subscribe((data) => {
-      this.reservations = data;
+  reservationList;
+  constructor(
+    private reservations: ReservationsService,
+    private users: UsersService
+  ) {
+    this.reservations.getReservations().subscribe((data) => {
+      this.reservationList = data;
+      this.reservationList = this.reservationList.filter((reservation) => {
+        return reservation.username === this.users.activeUser.username;
+      });
     });
   }
 
