@@ -40,17 +40,17 @@ header {
   margin-top: 200px;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 5rem;
 }
 
 .main-text {
   color: white;
-  font-size: 2.2rem;
+  font-size: 4rem;
 }
 
 .main-title {
   color: white;
-  font-size: 6rem;
+  font-size: 9rem;
 
   /* text-transform: lowercase; */
 }
@@ -60,6 +60,7 @@ header {
   background-color: transparent;
   transition: all 0.5s ease-in;
   position: fixed;
+  padding: 1rem 0;
 }
 
 .navbar-inverse {
@@ -83,10 +84,6 @@ header {
   flex-grow: 0;
 }
 
-.nav-link {
-  color: white;
-}
-
 .navbar-links-list {
   display: flex;
   gap: 20px;
@@ -98,7 +95,7 @@ header {
   color: white;
   text-decoration: none;
   font-weight: normal;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   display: block;
   cursor: pointer;
   transition: all 0.1s ease;
@@ -109,31 +106,19 @@ header {
 }
 
 .main-search {
-  width: 400px;
+  width: 50rem;
+  height: 3.5rem;
 }
 
 .btn-success {
   background-color: #ff922b;
   border: none;
   transition: all 0.2s ease-in;
+  padding: 0 2rem;
 }
 
 .btn-success:hover {
   background-color: #fd7e14;
-}
-
-@media (max-width: 1022px) {
-  .main-title {
-    font-size: 3rem;
-  }
-
-  .main-text {
-    font-size: 1.5rem;
-  }
-
-  .main-search {
-    width: 300px;
-  }
 }
 
 .modal {
@@ -194,4 +179,16 @@ header {
 
 .res-form label {
   font-weight: 500;
+}
+
+@media screen and (min-width: 1255px) and (max-width: 1600px) {
+  .main-text {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1254px) {
+  .main-text {
+    font-size: 2.5rem;
+  }
 }

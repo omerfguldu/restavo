@@ -20,19 +20,18 @@
         aria-labelledby="headingOne"
         data-bs-parent="#accordionExample"
       >
-        <form>
+        <div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
               >Restoran Adi</label
             >
             <input
               type="email"
-              class="form-control"
+              class="form-control mb-3"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              [(ngModel)]="restaurantName"
             />
-          </div>
-          <div class="mb-3">
             <label for="exampleInputDesc" class="form-label"
               >Restoran Aciklamasi</label
             >
@@ -41,6 +40,7 @@
               class="form-control mb-3"
               id="exampleInputDesc"
               rows="3"
+              [(ngModel)]="restaurantDesc"
             ></textarea>
             <label for="exampleInputAddress" class="form-label"
               >Restoran Adresi</label
@@ -50,19 +50,53 @@
               class="form-control mb-3"
               id="exampleInputAddress"
               rows="3"
+              [(ngModel)]="restaurantAddress"
             ></textarea>
             <label for="exampleInputTel" class="form-label"
               >Restoran Telefon</label
             >
             <input
               type="tel"
-              class="form-control"
+              class="form-control mb-3"
               id="exampleInputTel"
               aria-describedby="emailHelp"
+              [(ngModel)]="restaurantTel"
             />
+            <label for="exampleInputTel" class="form-label"
+              >Ortalama Puan</label
+            >
+            <input
+              type="tel"
+              class="form-control mb-3"
+              id="exampleInputTel"
+              aria-describedby="emailHelp"
+              [(ngModel)]="restaurantRate"
+            />
+            <label for="exampleInputTel" class="form-label"
+              >Ortalama Fiyat</label
+            >
+            <input
+              type="tel"
+              class="form-control mb-3"
+              id="exampleInputTel"
+              aria-describedby="emailHelp"
+              [(ngModel)]="restaurantPrice"
+            />
+            <label for="exampleInputTel" class="form-label">Kategori</label>
+            <select class="form-control" [(ngModel)]="restaurantCategory">
+              <option value="1">1 - Dining</option>
+              <option value="2">2 - Breakfast</option>
+              <option value="3">3 - Club</option>
+            </select>
           </div>
-          <button type="submit" class="btn btn-primary">Kaydet</button>
-        </form>
+          <button
+            type="button"
+            (click)="onAddNewRestaurant()"
+            class="btn btn-primary"
+          >
+            Kaydet
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -75,12 +109,16 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col" *ngFor="let restaurant of restaurantsList">
     <div class="card h-100">
+      <div class="card-hover-effect">
+        <button
+          class="btn btn-danger btn-delete"
+          (click)="onDelete(restaurant.id)"
+        >
+          Delete
+        </button>
+      </div>
       <a class="restaurant-link">
-        <img
-          src="{{ restaurant.picture }}"
-          class="card-img-top"
-          alt=""
-        />
+        <img src="{{ restaurant.picture }}" class="card-img-top" alt="" />
         <div class="card-body">
           <div class="card-body-left">
             <h5>{{ restaurant.name }}</h5>

@@ -11,9 +11,12 @@ export class RestaurantListComponent implements OnInit {
   constructor(private restaurants: RestaurantsService) {
     this.restaurants.getRestaurants().subscribe((data) => {
       this.restaurantsList = data;
+      console.log(this.restaurantsList);
+
       this.restaurantsList = this.restaurantsList.filter((restaurant) => {
         return restaurant.categoryId === this.restaurants.categoryId;
       });
+      console.log(this.restaurantsList);
     });
   }
 

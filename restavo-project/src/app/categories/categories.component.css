@@ -1,17 +1,19 @@
 .row-categories {
-  width: 60%;
+  width: 60vw;
   margin: 0 auto;
+}
+
+.card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .card {
   border-radius: 15px;
-  width: 23rem;
+  width: 100%;
   cursor: pointer;
   transition: all 0.2s ease-in;
-  margin-bottom: 20px;
-  height: 270px;
+  margin-bottom: 4rem;
 }
 
 .card:hover {
@@ -24,7 +26,8 @@
 }
 
 .card img {
-  height: 10rem;
+  height: 15rem;
+  object-fit: cover;
 }
 
 .categories-link {
@@ -34,7 +37,6 @@
 
 @media (min-width: 933px) and (max-width: 1390px) {
   .row-categories {
-    /* background-color: red; */
     grid-template-columns: 1fr 1fr;
   }
   .card {
@@ -43,7 +45,6 @@
 }
 @media (max-width: 933px) {
   .row-categories {
-    /* background-color: red; */
     grid-template-columns: 1fr;
   }
   .card {

@@ -14,4 +14,12 @@ export class RestaurantsService {
   getRestaurants() {
     return this.http.get(this.url);
   }
+
+  addNewRestaurant(newRest) {
+    this.http.post(this.url, newRest).subscribe();
+  }
+
+  deleteRestaurant(id) {
+    this.http.delete(`${this.url}/${id}`).subscribe();
+  }
 }
