@@ -33,12 +33,20 @@ export class NavbarComponent implements OnInit {
   navbar_variable = false;
   showModal: boolean = false;
   showSignUpModal: boolean = false;
+  hamburgerMenu;
   @HostListener('document:scroll')
   scrollFunction() {
+    this.hamburgerMenu = document.querySelectorAll('.line');
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       this.navbar_variable = true;
+      this.hamburgerMenu.forEach((line) => {
+        line.style.backgroundColor = '#000';
+      });
     } else {
       this.navbar_variable = false;
+      this.hamburgerMenu.forEach((line) => {
+        line.style.backgroundColor = '#fff';
+      });
     }
   }
 
