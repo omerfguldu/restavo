@@ -84,14 +84,83 @@
             />
             <label for="exampleInputTel" class="form-label">Kategori</label>
             <select class="form-control" [(ngModel)]="restaurantCategory">
-              <option value="1">1 - Dining</option>
-              <option value="2">2 - Breakfast</option>
-              <option value="3">3 - Club</option>
+              <option
+                *ngFor="let categoryType of categoryTypes"
+                value="{{ categoryType.id }}"
+              >
+                {{ categoryType.id }} - {{ categoryType.name }}
+              </option>
             </select>
           </div>
           <button
             type="button"
             (click)="onAddNewRestaurant()"
+            class="btn btn-primary"
+          >
+            Kaydet
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h3>Yeni Kategori Ekle</h3>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          Yeni Kategori Ekleme
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div>
+          <div class="mb-3">
+            <label for="categoryName" class="form-label">Kategori Adi</label>
+            <input
+              type="text"
+              class="form-control mb-3"
+              id="categoryName"
+              aria-describedby="emailHelp"
+              [(ngModel)]="categoryName"
+            />
+            <label for="categoryDesc" class="form-label"
+              >Kategori Aciklamasi</label
+            >
+            <textarea
+              type="text"
+              class="form-control mb-3"
+              id="categoryDesc"
+              rows="3"
+              [(ngModel)]="categoryDesc"
+            ></textarea>
+            <label for="categoryPicture" class="form-label"
+              >Kategori Resmi</label
+            >
+            <input
+              type="text"
+              class="form-control mb-3"
+              id="categoryPicture"
+              aria-describedby="emailHelp"
+              [(ngModel)]="categoryPicture"
+            />
+          </div>
+          <button
+            type="button"
+            (click)="onAddNewCategory()"
             class="btn btn-primary"
           >
             Kaydet

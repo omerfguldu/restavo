@@ -9,6 +9,15 @@ import { UsersService } from '../services/users.service';
 })
 export class NavbarComponent implements OnInit {
   userList;
+  username;
+  password;
+  newUserUsername;
+  newUserPassword;
+  userType;
+  isUserActive = false;
+  usernameExist;
+  usernamesArr;
+
   constructor(private router: Router, private userService: UsersService) {
     this.userService.getUsers().subscribe((data) => {
       this.userList = data;
@@ -23,6 +32,7 @@ export class NavbarComponent implements OnInit {
   resText = false;
   navbar_variable = false;
   showModal: boolean = false;
+  showSignUpModal: boolean = false;
   @HostListener('document:scroll')
   scrollFunction() {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
@@ -31,9 +41,7 @@ export class NavbarComponent implements OnInit {
       this.navbar_variable = false;
     }
   }
-  username;
-  password;
-  userType;
+
   onUsernameChange(value) {
     this.username = value;
   }
@@ -42,9 +50,22 @@ export class NavbarComponent implements OnInit {
     this.password = value;
   }
 
+  onNewUserUsernameChange(value) {
+    this.newUserUsername = value;
+  }
+
+  onNewUserPasswordChange(value) {
+    this.newUserPassword = value;
+  }
+
   clearInputTexts() {
     this.username = '';
     this.password = '';
+  }
+
+  clearSignUpTexts() {
+    this.newUserUsername = '';
+    this.newUserPassword = '';
   }
 
   login() {
@@ -53,10 +74,53 @@ export class NavbarComponent implements OnInit {
         this.loginText = 'Çıkış Yap';
         this.resText = true;
         this.userService.activeUser = user;
+        this.isUserActive = true;
         this.userType = this.userService.activeUser['user_type'];
       }
     });
     this.clearInputTexts();
+  }
+
+  isUsernameExist() {
+    this.usernamesArr = this.userList.map((user) => {
+      return user.username;
+    });
+    return this.usernamesArr.includes(this.newUserUsername);
+  }
+
+  signup(event) {
+    event.target.classList.add('disabled');
+    this.usernameExist = this.isUsernameExist();
+    if (!this.usernameExist) {
+      const body = {
+        username: this.newUserUsername,
+        password: this.newUserPassword,
+        user_type: 'user',
+      };
+      this.userService.addNewUser(body);
+      setTimeout(() => {
+        this.userService.getUsers().subscribe((data) => {
+          this.userList = data;
+          this.showSignUpModal = false;
+          this.loginText = 'Çıkış Yap';
+          this.resText = true;
+          this.isUserActive = true;
+          event.target.classList.remove('disabled');
+          this.userList.forEach((user) => {
+            if (
+              user.username === this.newUserUsername &&
+              user.password === this.newUserPassword
+            ) {
+              this.userService.activeUser = user;
+              this.userType = this.userService.activeUser['user_type'];
+            }
+          });
+          this.clearSignUpTexts();
+        });
+      }, 1000);
+    } else {
+      window.alert('username exist!!!');
+    }
   }
 
   onLogin() {
@@ -68,6 +132,21 @@ export class NavbarComponent implements OnInit {
       this.router.navigateByUrl('/');
       this.userService.activeUser = {};
       this.userType = '';
+      this.isUserActive = false;
     }
+  }
+
+  onSignUp() {
+    this.showSignUpModal = true;
+  }
+
+  signUpModalClose() {
+    this.showSignUpModal = false;
+    this.clearSignUpTexts();
+  }
+
+  loginModalClose() {
+    this.showModal = false;
+    this.clearInputTexts();
   }
 }

@@ -16,7 +16,6 @@ export class RestaurantListComponent implements OnInit {
       this.restaurantsList = this.restaurantsList.filter((restaurant) => {
         return restaurant.categoryId === this.restaurants.categoryId;
       });
-      console.log(this.restaurantsList);
     });
   }
 

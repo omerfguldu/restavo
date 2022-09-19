@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoriesService } from '../services/categories.service';
 import { RestaurantsService } from '../services/restaurants.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { RestaurantsService } from '../services/restaurants.service';
 })
 export class AdminComponent implements OnInit {
   restaurantsList: any;
+  categoryTypes: any;
 
   restaurantName: any;
   restaurantDesc: any;
@@ -17,14 +19,22 @@ export class AdminComponent implements OnInit {
   restaurantRate: any;
   restaurantPrice: any;
   restaurantCategory: any;
+  categoryName: any;
+  categoryDesc: any;
+  categoryPicture: any;
 
   constructor(
     private restaurantService: RestaurantsService,
+    private categoriesService: CategoriesService,
     private router: Router,
     private route: ActivatedRoute
   ) {
     this.restaurantService.getRestaurants().subscribe((data) => {
       this.restaurantsList = data;
+    });
+
+    this.categoriesService.getCategories().subscribe((data) => {
+      this.categoryTypes = data;
     });
   }
 
@@ -53,6 +63,19 @@ export class AdminComponent implements OnInit {
       tel: this.restaurantTel,
     };
     this.restaurantService.addNewRestaurant(body);
+    this.reloadPage();
+  }
+
+  onAddNewCategory() {
+    const body = {
+      picture:
+        this.categoryPicture ||
+        'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRpbmluZyUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      name: this.categoryName,
+      description: this.categoryDesc,
+    };
+
+    this.categoriesService.addCategory(body);
     this.reloadPage();
   }
 

@@ -24,4 +24,14 @@ export class ReservationsService {
     console.log(newReservation);
     console.log(JSON.stringify(newReservation));
   }
+
+  cancelReservation(id) {
+    if (window.confirm('Rezervasyonu iptal etmek istediğinize emin misiniz?')) {
+      this.http
+        .delete(
+          `https://63233633362b0d4e7ddee232.mockapi.io/reservations/${id}`
+        )
+        .subscribe();
+    }
+  }
 }

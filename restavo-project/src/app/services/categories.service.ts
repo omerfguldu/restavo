@@ -12,4 +12,8 @@ export class CategoriesService {
   getCategories() {
     return this.http.get(this.url);
   }
+
+  addCategory(newCategory) {
+    return this.http.post(this.url, newCategory).subscribe();
+  }
 }

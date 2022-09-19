@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationsService } from '../services/reservations.service';
 import { UsersService } from '../services/users.service';
 
@@ -11,7 +12,9 @@ export class MyreservationsComponent implements OnInit {
   reservationList;
   constructor(
     private reservations: ReservationsService,
-    private users: UsersService
+    private users: UsersService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.reservations.getReservations().subscribe((data) => {
       this.reservationList = data;
@@ -20,6 +23,21 @@ export class MyreservationsComponent implements OnInit {
       });
     });
   }
+
+  reloadPage() {
+    setTimeout(() => {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate(['./'], {
+        relativeTo: this.route,
+      });
+    }, 1000);
+  }
+
+  onCancelReservation = (id) => {
+    this.reservations.cancelReservation(id);
+    this.reloadPage();
+  };
 
   ngOnInit(): void {}
 }

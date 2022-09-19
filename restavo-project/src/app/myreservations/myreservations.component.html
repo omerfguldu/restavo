@@ -20,7 +20,13 @@
         <td>{{ reservation.reservationTime }}</td>
         <td>{{ reservation.personNum }}</td>
         <td>
-          <button type="button" class="btn btn-danger">İptal Et</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="onCancelReservation(reservation.id)"
+          >
+            İptal Et
+          </button>
         </td>
       </tr>
     </tbody>

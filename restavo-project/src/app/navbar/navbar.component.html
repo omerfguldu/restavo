@@ -20,9 +20,17 @@
             >
           </li>
           <li>
-            <a class="nav-link-item" *ngIf="resText" routerLink="/reservations"
+            <a
+              class="nav-link-item"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              *ngIf="resText"
+              routerLink="/reservations"
               >Rezervasyonlarım</a
             >
+          </li>
+          <li *ngIf="!isUserActive">
+            <a class="nav-link-item" (click)="onSignUp()"> Üye Ol </a>
           </li>
           <li>
             <a class="nav-link-item" (click)="onLogin()">
@@ -48,6 +56,50 @@
       <button class="btn btn-success btn-search" type="submit">Search</button>
     </form>
   </div>
+
+  <div *ngIf="showSignUpModal" class="modal" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Üye Ol</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="signUpModalClose()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form class="res-form">
+            <input
+              type="text"
+              placeholder="Kullanıcı Adı"
+              required
+              [ngModel]="newUserUsername"
+              (ngModelChange)="onNewUserUsernameChange($event)"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <input
+              type="password"
+              placeholder="Şifre"
+              required
+              [ngModel]="newUserPassword"
+              (ngModelChange)="onNewUserPasswordChange($event)"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <button
+              type="submit"
+              (click)="signup($event)"
+              class="btn btn-primary"
+            >
+              Üye Ol
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <div
@@ -64,7 +116,7 @@
         class="btn-close"
         data-bs-dismiss="modal"
         aria-label="Close"
-        (click)="showModal = false"
+        (click)="loginModalClose()"
       ></button>
     </div>
     <div class="modal-body">
