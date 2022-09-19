@@ -124,6 +124,7 @@ header {
   z-index: 99;
   opacity: 0;
   pointer-events: none;
+  cursor: pointer;
 }
 
 .hamburger-menu-container {
@@ -264,7 +265,11 @@ header {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .modal-content {
+    width: 30rem;
+  }
+
   .main-text {
     font-size: 2.5rem;
     max-width: 80%;
@@ -314,7 +319,7 @@ header {
     opacity: 1;
     height: 100vh;
     width: 50vw;
-    padding: 4rem 0;
+    padding: 8rem 0;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   }
 
@@ -348,5 +353,114 @@ header {
   .hamburger-menu-container {
     opacity: 100;
     z-index: 20;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main-title {
+    font-size: 6rem;
+  }
+
+  .main-text {
+    font-size: 1.8rem;
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .main-search {
+    width: 20rem;
+    flex: 4;
+  }
+
+  .btn-search {
+    /* width: 10rem; */
+    width: 100%;
+    flex: 1;
+    padding: 0.5rem;
+  }
+
+  .navbar-div {
+    width: 100%;
+    padding: 0 4rem;
+  }
+
+  .navbar-links-container {
+    position: absolute;
+    right: -50%;
+    top: -1rem;
+    z-index: 9;
+    transition: all 0.5s ease;
+  }
+
+  .navbar-links-list {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    gap: 0;
+    background-color: #fff;
+    opacity: 1;
+    height: 100vh;
+    width: 50vw;
+    padding: 8rem 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  }
+
+  .navbar-links-list li {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-links-list li:last-of-type {
+    border-bottom: none;
+  }
+
+  .menu-input {
+    pointer-events: all;
+  }
+
+  .menu-input:checked ~ .navbar-div .navbar-links-container {
+    right: 0;
+  }
+
+  .menu-input:checked ~ .navbar-div .navbar-links-container ul li a {
+    color: #000;
+  }
+
+  .menu-input:checked ~ .navbar-div .hamburger-menu-container div {
+    background-color: #000 !important;
+  }
+
+  .hamburger-menu-container {
+    opacity: 100;
+    z-index: 20;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .main-texts {
+    margin-top: 150px;
+  }
+}
+
+@media screen and (min-height: 601px) and (max-height: 800px) {
+  .main-texts {
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .main-texts {
+    margin-top: 100px;
   }
 }

@@ -79,11 +79,29 @@ h5 {
   color: rgb(156, 156, 156);
   box-shadow: rgb(54 54 54 / 6%) 0px 1px 2px;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 12px;
+  padding: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
 .filter-bar a:hover {
   background-color: rgb(245, 245, 245);
+}
+
+@media screen and (min-width: 436px) and (max-width: 650px) {
+  .filter-bar a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 435px) {
+  .filter-bar a {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .filter-bar {
+    flex-direction: column;
+  }
 }
