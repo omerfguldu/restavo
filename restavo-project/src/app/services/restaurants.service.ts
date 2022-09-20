@@ -10,6 +10,8 @@ export class RestaurantsService {
 
   categoryId;
   restaurantId;
+  searchKeyword = '';
+  reloadResultsPage = false;
 
   getRestaurants() {
     return this.http.get(this.url);

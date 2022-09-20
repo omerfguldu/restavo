@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Host } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestaurantsService } from '../services/restaurants.service';
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -17,8 +18,14 @@ export class NavbarComponent implements OnInit {
   isUserActive = false;
   usernameExist;
   usernamesArr;
+  searchInput;
 
-  constructor(private router: Router, private userService: UsersService) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private userService: UsersService,
+    private restaurantsService: RestaurantsService
+  ) {
     this.userService.getUsers().subscribe((data) => {
       this.userList = data;
       // this.restaurantsList = this.restaurantsList.filter((restaurant) => {
@@ -138,7 +145,7 @@ export class NavbarComponent implements OnInit {
       this.loginText = 'Giriş Yap';
       this.resText = false;
       this.router.navigateByUrl('/');
-      this.userService.activeUser = {};
+      this.userService.activeUser = undefined;
       this.userType = '';
       this.isUserActive = false;
     }
@@ -156,5 +163,16 @@ export class NavbarComponent implements OnInit {
   loginModalClose() {
     this.showModal = false;
     this.clearInputTexts();
+  }
+
+  onSearch() {
+    this.router.navigateByUrl('/results');
+    this.restaurantsService.reloadResultsPage = true;
+    this.searchInput = '';
+  }
+
+  onSearchInputChange(value) {
+    this.searchInput = value;
+    this.restaurantsService.searchKeyword = this.searchInput;
   }
 }

@@ -50,10 +50,19 @@
       <input
         class="form-control me-2 main-search"
         type="search"
-        placeholder="Restoran, yemek veya mutfak türü ara"
+        placeholder="Restoran adına göre arama yap..."
         aria-label="Search"
+        [ngModel]="searchInput"
+        (ngModelChange)="onSearchInputChange($event)"
+        [ngModelOptions]="{ standalone: true }"
       />
-      <button class="btn btn-success btn-search" type="submit">Search</button>
+      <button
+        class="btn btn-success btn-search"
+        type="button"
+        (click)="onSearch()"
+      >
+        Search
+      </button>
     </form>
   </div>
 

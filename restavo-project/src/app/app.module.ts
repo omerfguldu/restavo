@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyreservationsComponent } from './myreservations/myreservations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdminComponent } from './admin/admin.component';
     RestaurantDetailsComponent,
     MyreservationsComponent,
     AdminComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,

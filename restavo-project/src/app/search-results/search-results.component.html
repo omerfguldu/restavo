@@ -1,0 +1,41 @@
+<div class="row">
+  <h2>Arama Sonuçları</h2>
+</div>
+
+<div *ngIf="!showMessage" class="row row-cols-1 row-cols-md-3 g-4">
+  <!-- <div class="col" *ngFor="let restaurant of restaurantsList"> -->
+  <div class="col" *ngFor="let restaurant of restaurantsList">
+    <div class="card h-100">
+      <a
+        class="restaurant-link"
+        href=""
+        routerLink="/details"
+        (click)="restaurantInfo(restaurant.id)"
+      >
+        <!--  -->
+        <img src="{{ restaurant.picture }}" class="card-img-top" alt="" />
+        <div class="card-body">
+          <div class="card-body-left">
+            <h5>{{ restaurant.name }}</h5>
+            <p class="card-text">{{ restaurant.description }}</p>
+            <p class="card-text">{{ restaurant.address }}</p>
+          </div>
+          <div class="card-body-left">
+            <p class="card-title">
+              <span class="rating"
+                >{{ restaurant.rate }} <span class="star">*</span></span
+              >
+            </p>
+            <p class="card-text">
+              {{ restaurant.averagePrice }}₺ iki kişi için
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showMessage" class="row row-cols-1 row-cols-md-3 g-4">
+  <p>Sonuç Bulunamadı ☹</p>
+</div>

@@ -1,0 +1,107 @@
+.row {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.card {
+  border: none;
+}
+
+.card:hover {
+  border: none;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  height: 225px;
+}
+
+.restaurant-link {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.restaurant-link img {
+  border-radius: 20px;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.card-text {
+  margin-bottom: 2px;
+}
+
+.card-title {
+  text-align: right;
+}
+
+.card-title .rating {
+  text-align: right;
+  background-color: #37b24d;
+  padding: 3px 15px 3px 10px;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.star {
+  font-size: 22px;
+  position: absolute;
+  top: 0;
+  right: 3px;
+}
+
+.card-body p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-bar a {
+  border: 1px solid rgb(207, 207, 207);
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(156, 156, 156);
+  box-shadow: rgb(54 54 54 / 6%) 0px 1px 2px;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.filter-bar a:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+@media screen and (min-width: 436px) and (max-width: 650px) {
+  .filter-bar a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 435px) {
+  .filter-bar a {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .filter-bar {
+    flex-direction: column;
+  }
+}

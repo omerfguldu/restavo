@@ -1,6 +1,6 @@
 <div class="modal-res" tabindex="-1" *ngIf="showAlert">
   <div class="modal-dialog">
-    <div class="modal-content modal-content-res">
+    <div class="modal-content modal-content-res alert-modal">
       <div class="modal-header">
         <button
           type="button"
@@ -11,7 +11,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <p>Rezervasyon başarıyla oluşturuldu.</p>
+        <p>{{ alertText }}</p>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
         <a class="nav-link active" aria-current="page" href="">Genel Bakis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link nav-res" (click)="showModal = !showModal"
+        <a class="nav-link nav-res" (click)="onReservation()"
           >Rezervasyon Yap</a
         >
       </li>

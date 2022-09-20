@@ -17,6 +17,9 @@ export class RestaurantDetailsComponent implements OnInit {
   reservationDate: any;
   reservationHour: any;
   reservationPeople: any;
+  showModal: boolean = false;
+  showAlert: boolean = false;
+  alertText: string = 'Lutfen giris yapin.';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,9 +57,15 @@ export class RestaurantDetailsComponent implements OnInit {
     this.reservationsService.addNewReservation(body);
 
     this.showModal = false;
+    this.alertText = 'Rezervasyon basariyla olusturuldu.';
     this.showAlert = true;
   }
-
-  showModal: boolean = false;
-  showAlert: boolean = false;
+  onReservation() {
+    if (this.usersService.activeUser) {
+      this.showModal = true;
+    } else {
+      this.alertText = 'Lutfen giris yapin.';
+      this.showAlert = true;
+    }
+  }
 }
